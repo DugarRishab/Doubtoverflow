@@ -28,7 +28,7 @@ class Navbar extends Component {
 					</Link>
 					<form action="" className="nav-item search-bar">
 						<input type="text" placeholder="Search..." />
-						<span class="material-icons" width="18">
+						<span className="material-icons" width="18">
 							search
 						</span> 
 					</form>

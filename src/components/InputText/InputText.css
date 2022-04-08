@@ -1,0 +1,35 @@
+:root {
+	--accent: rgb(76, 210, 3);
+	--accent: rgb(165, 121, 255);
+	--accent70: rgba(165, 121, 255, 0.7);
+	--accent-dark: rgb(165, 121, 255);
+	--danger: rgb(205, 40, 40);
+}
+input{
+	background-color: rgba(255, 255, 255, 0.1);
+	border: none;
+	outline: 1px solid rgba(255, 255, 255, 0.2);
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+
+	color: rgb(235, 235, 235);
+}
+input:focus{
+	outline: 2px solid var(--accent70);
+}
+label{
+	border: 0px solid green;
+	margin: 10px auto;
+	width: 100%;
+	height: fit-content;
+
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+label h4{
+	margin: 10px 0;
+}
+

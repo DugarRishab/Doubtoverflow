@@ -1,21 +1,51 @@
 :root {
-	--accent: rgb(76, 210, 3);
 	--accent: rgb(165, 121, 255);
-	--accent50: rgba(76, 210, 3, 0.50);
+	--accent80: rgba(165, 121, 255, 0.80);
 	--accent-dark: rgb(22, 62, 0);
 }
 button{
-	background-color: rgba(255, 255, 255, 0.15);
+	background-color: rgba(255, 255, 255, 0.10);
+	outline: 0px solid var(--accent);
+	border: none;
+	color: rgb(234, 234, 234);
+	padding: 10px 10px;
+	margin: 0%;
+	border-radius: 5px;
+	transition: all 0s;
+	cursor: pointer;
+}
+button:focus,
+button:hover {
+	transition: 0s;
+	outline: 2px solid var(--accent);
+}
+button.btn--primary{
+	background-color: var(--accent);
 	outline: 0px solid var(--accent);
 	border: none;
 	color: rgb(234, 234, 234);
 	padding: 15px 15px;
 	margin: 1%;
 	border-radius: 5px;
-	transition: all 0.2s;
+	transition: all 0s;
 }
-button:focus,
-button:hover {
-	transition: 0s;
-	outline: 2px solid var(--accent);
+.btn--primary:hover{
+	background-color: var(--accent80);
+}
+button.btn--secondary{
+
+}
+button.btn--tertiary{
+	background-color: rgba(255, 255, 255, 0.0);
+	outline: 0px solid var(--accent);
+	border: none;
+	color: rgb(234, 234, 234);
+	padding: 15px 15px;
+	margin: 1%;
+	border-radius: 5px;
+	transition: all 0s;
+	color: rgb(39, 205, 255);
+}
+button.btn--tertiary:hover{
+	text-decoration: underline;
 }

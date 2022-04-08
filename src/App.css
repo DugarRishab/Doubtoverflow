@@ -1,0 +1,12 @@
+*{
+	letter-spacing: 0.1ex;
+}
+.home-container{
+	min-height: 100vh;
+	max-width: 1250px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	border: 2px solid red;
+}

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './Button.css';
 
 class Button extends Component {
-	state = {  } 
+	state = {}
+	
 	render() { 
-		const { innerText } = this.props;
+		const { innerText, buttonType, type, onSwitch } = this.props;
 		return (
-			<button>{ innerText }</button>
+			<button className={`btn--${ buttonType }`} type={ type } onClick={()=>onSwitch()} >{ innerText }</button>
 		);
 	}
 }

@@ -5,7 +5,7 @@
 :root{
 	--accent: rgb(76, 210, 3);
 	--accent: rgb(165, 121, 255);
-	--accent50: rgba(76, 210, 3, 0.50);
+	--accent70: rgba(165, 121, 255, 0.70);
 	--accent-dark: rgb(22, 62, 0);
 	--danger: rgb(205, 40, 40);
 }
@@ -27,7 +27,8 @@ nav{
 }
 .navbar{
 	height: 100%;
-	min-width: 95%;
+	max-width: 1250px;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -74,7 +75,7 @@ nav{
 	text-indent: 30px;
 }
 .navbar .nav-item.search-bar input:focus{
-	outline: 2px solid var(--accent);
+	outline: 2px solid var(--accent70);
 
 }
 .navbar .nav-item.search-bar span{
