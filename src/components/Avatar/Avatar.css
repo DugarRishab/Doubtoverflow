@@ -1,0 +1,21 @@
+:root {
+	--accent: rgb(76, 210, 3);
+	--accent: rgb(165, 121, 255);
+	--accent50: rgba(76, 210, 3, 0.50);
+	--accent-dark: rgb(22, 62, 0);
+}
+.avatar{
+	background-color: var(--accent);
+
+	color: rgb(235, 235, 235);
+	padding: 10px;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	align-items: center;
+	justify-content: center;
+}

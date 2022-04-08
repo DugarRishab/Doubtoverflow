@@ -1,0 +1,21 @@
+:root {
+	--accent: rgb(76, 210, 3);
+	--accent: rgb(165, 121, 255);
+	--accent50: rgba(76, 210, 3, 0.50);
+	--accent-dark: rgb(22, 62, 0);
+}
+button{
+	background-color: rgba(255, 255, 255, 0.15);
+	outline: 0px solid var(--accent);
+	border: none;
+	color: rgb(234, 234, 234);
+	padding: 15px 15px;
+	margin: 1%;
+	border-radius: 5px;
+	transition: all 0.2s;
+}
+button:focus,
+button:hover {
+	transition: 0s;
+	outline: 2px solid var(--accent);
+}
