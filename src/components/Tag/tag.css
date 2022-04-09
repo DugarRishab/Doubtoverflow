@@ -1,0 +1,13 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent10: rgba(165, 121, 255, 0.10);
+	--accent-dark: rgb(62, 49, 89);
+	--danger: rgb(205, 40, 40);
+}
+.tag{
+	background-color: var(--accent10) ;
+	color: var(--accent);
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}

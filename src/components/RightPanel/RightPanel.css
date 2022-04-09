@@ -1,0 +1,67 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent10: rgba(165, 121, 255, 0.10);
+	--accent-dark: rgb(22, 62, 0);
+	--danger: rgb(205, 40, 40);
+}
+.right-panel{
+	margin-left: 24px;
+	float: right;
+	width: 300px;
+	margin: 40px 0 15px 24px;
+	font-size: 13px;
+	/* border: 2px solid red; */
+	
+}
+.widget{
+	background-color: var(--accent10);
+	color: rgb(235, 235, 235);
+	display: flex;
+	flex-direction: column;
+
+}
+.widget .title{
+	background-color: var(--accent10);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+	padding: 10px;
+}
+.widget .widget-item{
+	font-size: 13px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: left;
+	border: 0px solid red;
+	padding: 5px;
+	color: rgb(235, 235, 235, 0.8);
+	transition: 0.2s all;
+	cursor: pointer;
+}
+.widget .widget-item:hover{
+	color: rgb(235, 235, 235, 1);
+}
+.widget .widget-item span{
+	font-size: 13px;
+	padding: 10px;
+}
+.widget .widget-item:last-child {
+	margin-bottom: 15px;
+}
+.widget-tags{
+	display: flex;
+	flex-flow: column wrap;
+	color: rgb(233, 233, 233);
+	border: 1px solid var(--accent-dark);
+	margin-top: 20px;
+}
+.widget-tags .title{
+	padding: 10px;
+}
+.widget-tags .tags {
+	display: flex;
+	flex-flow: row wrap;
+}
+.widget-tags .tags .tag{
+	margin: 5px;
+	width: fit-content;
+}
