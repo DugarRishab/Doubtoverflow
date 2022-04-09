@@ -33,7 +33,11 @@ button.btn--primary{
 	background-color: var(--accent80);
 }
 button.btn--secondary{
-
+	background-color: rgba(255, 255, 255, 0);
+	color: var(--accent);
+	border: 1px solid var(--accent);
+	width: fit-content;
+	padding: 10px 10px;
 }
 button.btn--tertiary{
 	background-color: rgba(255, 255, 255, 0.0);

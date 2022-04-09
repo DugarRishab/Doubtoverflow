@@ -4,9 +4,11 @@ import './tag.css';
 class Tag extends Component {
 	state = {  } 
 	render() { 
-		const { tag } = this.props;
+		const { tag, small } = this.props;
 		return (
-			<div className='tag'>
+			<div className={
+				small ? "tag small" : "tag"
+			}>
 				{tag}
 			</div>
 		);
