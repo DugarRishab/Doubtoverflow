@@ -1,0 +1,76 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent70: rgba(165, 121, 255, 0.70);
+	--accent10: rgba(165, 121, 255, 0.10);
+	--accent20: rgba(165, 121, 255, 0.20);
+	--accent-dark: rgb(62, 49, 89);
+	--danger: rgb(205, 40, 40);
+}
+.home-main-panel{
+	border:  0px solid red;
+	margin-top: 10px;
+	flex-grow: 1;
+	margin: 10px 10px 0 20px;
+}
+.home-main-panel .header{
+	color: rgb(235, 235, 235);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+}
+.home-main-panel .header .ask-btn{
+	width: fit-content;
+	width: 120px;
+}
+.home-main-panel .contents{
+	color: rgb(234, 234, 234);
+	border: 0px solid green;
+}
+.home-main-panel .contents .questions{
+	border: 0px solid pink;
+	margin-top: 10px;
+}
+.home-main-panel .contents .questions .question{
+	margin: 5px 0 5px 0;
+}
+.home-main-panel .tab-container{
+	border: 0px solid red;
+	color: rgb(235, 235, 235);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 20px 0 20px 0;
+}
+.home-main-panel .tab-container .tabs{
+	
+	border: 0px solid greenyellow;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	width: fit-content;
+}
+.home-main-panel .tab-container .tabs .tab{
+	border: 0px solid var(--accent70);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	font-size: 15px;
+	padding: 10px;
+	background-color: var(--accent10);
+	border-radius: 5px;
+	margin: 0 5px 0 5px;
+	transition: 0.2s all;
+}
+.home-main-panel .tab-container .tabs .tab.active,
+.home-main-panel .tab-container .tabs .tab:hover {
+	background-color: var(--accent20);
+}
+.home-main-panel .tab-container .tabs .tab .number{
+	margin: 0 5px 0 5px;
+	color: var(--accent);
+}
