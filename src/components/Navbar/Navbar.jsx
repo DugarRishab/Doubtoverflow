@@ -12,9 +12,9 @@ class Navbar extends Component {
 	render() {
 		const user = null;
 		return (
-			<nav>
+			<nav className="nav-bar">
 				<div className="navbar">
-					<Link exact to="/" className="nav-item nav-btn logo">
+					<Link exact to="/" className="nav-item nav-btn logo" activeClass="active">
 						<img src={logo} alt="logo" />
 					</Link>
 					<Link to="/about" className="nav-item nav-btn">

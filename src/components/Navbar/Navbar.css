@@ -3,27 +3,28 @@
 	padding: 0;
 }
 :root{
-	--accent: rgb(76, 210, 3);
 	--accent: rgb(165, 121, 255);
 	--accent70: rgba(165, 121, 255, 0.70);
 	--accent-dark: rgb(22, 62, 0);
 	--danger: rgb(205, 40, 40);
 }
-nav{
+nav.nav-bar{
 	min-height: 50px;
 	width: 100%;
 	margin: 0 auto;
 	border-top: 2px solid var(--accent);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+	background-color: rgba(248, 249, 249, 0.05);
+	backdrop-filter: blur(40px);
 
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: rgba(248, 249, 249, 0.05);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 60px;
+	z-index: 2;
 }
 .navbar{
 	height: 100%;
@@ -49,6 +50,9 @@ nav{
 	color: rgb(234, 234, 234);
 	letter-spacing: 0.2ex;
 	transition: 0.25s all;
+}
+.nav-item.active{
+	color: var(--accent);
 }
 .navbar .nav-item.logo img{
 	height: 100%;

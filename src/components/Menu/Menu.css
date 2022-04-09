@@ -1,0 +1,66 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent70: rgba(165, 121, 255, 0.70);
+	--accent-dark: rgb(62, 49, 89);
+	--danger: rgb(205, 40, 40);
+}
+.menu {
+	width: 164px;
+	border-right: 1px solid var(--accent-dark);
+	color: rgb(233, 233, 233);
+	height: calc(100vh - 80px);
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+.menu nav{
+	display: flex;
+	flex-direction: column;
+	position: inherit;
+	align-items: center;
+	justify-content: center;
+	border: 0px solid blue;
+	text-decoration: none;
+	margin-top: 50px;
+	width: 80%;
+
+}
+.menu-link{
+	text-decoration: none;
+	color: rgb(233, 233, 233);
+
+	padding: 10px;
+	border: 0px solid green;
+	width: 100%;
+	box-sizing: border-box;
+	transition: 0.2s all;
+
+}
+.menu-link.active{
+	border-right: 5px solid var(--accent);
+	color: var(--accent);
+	font-weight: 700;
+}
+.menu-link:hover{
+	color: var(--accent);
+}
+.menu-items{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.menu-items .title{
+	color: rgb(201, 201, 201);
+	border: 0px solid green;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	margin: 20px 0 0 0;
+}
+.menu-items .menu-item{
+	width: calc(100% - 20px);
+}

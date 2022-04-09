@@ -1,16 +1,38 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent70: rgba(165, 121, 255, 0.70);
+	--accent-dark: rgb(22, 62, 0);
+	--danger: rgb(205, 40, 40);
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(25, 25, 25);
-  background-color: rgb(9, 12, 8);
-  background-color: rgb(18, 16, 22);
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: rgb(25, 25, 25);
+	background-color: rgb(9, 12, 8);
+	background-color: rgb(18, 16, 22);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+::-webkit-scrollbar {
+	background: none;
+	width: 5px;
+}
+
+::-webkit-scrollbar-button {}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--accent);
+	border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: none;
 }
