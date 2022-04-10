@@ -1,24 +1,27 @@
 import React, { Component } from "react";
 
 import Menu from "../../components/Menu/Menu";
-import HomeMainPanel from "../../components/HomeMainPanel/HomeMainPanel";
 import RightPanel from "../../components/RightPanel/RightPanel";
-import AllRoutes from "../../AllRoutes";
+import QuestionDetailsPanel from "./QuestionDetailsPanel";
+import AllQuestionsPanel from "./AllQuestionsPanel";
+import { useParams } from "react-router-dom";
 
-class Questions extends Component {
-	state = {};
-	render() {
-		return (
-			<div className="home-container">
-				<Menu></Menu>
+const Questions = () => {
+	const { id } = useParams();
+	return (
+		<div className="home-container">
+			<Menu></Menu>
 
-				<div className="main-body">
-					<HomeMainPanel></HomeMainPanel>
-					<RightPanel></RightPanel>
-				</div>
+			<div className="main-body">
+				{id ? (
+					<QuestionDetailsPanel></QuestionDetailsPanel>
+				) : (
+					<AllQuestionsPanel></AllQuestionsPanel>
+				)}
+				<RightPanel></RightPanel>
 			</div>
-		);
-	}
-}
+		</div>
+	);
+};
 
 export default Questions;

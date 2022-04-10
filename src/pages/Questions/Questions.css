@@ -1,0 +1,237 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent5: rgba(165, 121, 255, 0.05);
+	--accent20: rgba(165, 121, 255, 0.2);
+	--accent-dark: rgb(62, 49, 89);
+	--danger: rgb(205, 40, 40);
+	--correct: rgb(0, 255, 0);
+	--correct70: rgb(0, 255, 0, 0.7);
+}
+.ques-panel{
+	color:  rgb(234, 234, 234);
+	width: calc((100% - 300px));
+	padding: 20px;
+}
+.ques-panel .header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px 0;
+}
+.ques-panel .header button{
+	width: 120px;
+}
+.answer-container,
+.ques-container{
+	border: 1px solid var(--accent20);
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.ques-header{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	border: 0px solid blue;
+	margin-top: 20px;
+}
+.ques-header .ques-title{
+	font-size: 25px;
+	font-weight: 400;
+}
+.ques-header .ques-info{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	font-size: 12px;
+	font-weight: 300;
+	color: rgb(199, 199, 199);
+}
+.ques-header .ques-info .item{
+	padding: 5px;
+}
+.answer-details,
+.ques-details{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	border: 0px solid blue;
+	margin-top: 10px;
+}
+.answer-details .voter,
+.ques-details .voter{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	border: 0px solid red;
+	padding: none;
+}
+.answer-details .voter span,
+.ques-details .voter span{
+	font-size: 50px;
+	padding: none;
+}
+.answer-details .answer-content,
+.ques-details .ques-content{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.answer-details .answer-content{
+	margin-top: 10px;
+}
+.answer-details .answer-content .answer-body,
+.ques-details .ques-content .ques-body{
+	font-size: 15px;
+	margin-bottom: 10px;
+	font-weight: 300;
+}
+.ques-details .ques-content .ques-tags{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.ques-details .ques-content .ques-tags .tag{
+	padding: 5px;
+	margin: 5px;
+}
+.answer-user-details,
+.ques-user-details{
+	width: 100%;
+	border: 0px solid red;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+.answer-user-details .answer-user,
+.ques-user-details .ques-user{
+	background-color: rgba(255, 255, 255, 0.05);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+	padding: 10px;
+	font-size: 12px;
+	border-radius: 5px;
+}
+.answer-user-details .answer-user a,
+.ques-user-details .ques-user a{
+	text-decoration: none;
+}
+.answer-user-details .answer-user .user-info,
+.ques-user-details .ques-user .user-info{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 12px;
+	text-decoration: none;
+	color: rgb(233, 233, 233);
+}
+.answer-user-details .answer-user .user-info .avatar,
+.ques-user-details .ques-user .user-info .avatar{
+	width: 2px;
+	height: 2px;
+	padding: 10px;
+	margin: 0 5px 0 0;
+	text-decoration: none;
+}
+.answer-user-details .answer-user .user-info .avatar span,
+.ques-user-details .ques-user .user-info .avatar span{
+	font-size: 13px;
+	text-decoration: none;
+}
+.answer-header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	border: 0px solid blue;
+	padding: 20px 0;
+}
+.answer-header .filter-dropdown{
+	background-color: var(--accent20);
+	border: 0px solid red;
+	border-radius: 5px;
+	font-size: 13px;
+}
+.answer-header .dropdown-control{
+	background-color: var(--accent20);
+	color: rgb(235, 235, 235);
+	outline: none;
+	border: none;
+}
+.answer-header .dropdown-menu{
+	background-color: var(--accent5);
+	color: rgb(235, 235, 235) !important;
+	border: none;
+}
+.answer-header .dropdown-menu div{
+	color: rgb(235, 235, 235);
+	background-color: var(--accent5);
+	border: none;
+}
+.answer-header .dropdown-menu div:hover,
+.answer-header .dropdown-menu div:active {
+	background-color: var(--accent20);
+	color: rgb(235, 235, 235);
+}
+section.your-answer{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin-top: 40px;
+}
+section.your-answer form{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100%;
+}
+section.your-answer form textarea{
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--accent20);
+	outline: none;
+	border-radius: 5px;
+	color: rgb(232, 232, 232);
+	padding: 20px;
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+section.your-answer form textarea:focus{
+	outline: 2px solid var(--accent);
+}
+section.your-answer form button{
+	margin: 10px 0;
+}
+.not-sure-section{
+	margin-top: 20px;
+}
+.not-sure-section{
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.not-sure-section .tag{
+	padding: 5px;
+	width: fit-content;
+	margin: 5px;
+}
+.not-sure-section a{
+	text-decoration: none;
+	color: rgb(34, 170, 255);
+	margin: 0 5px;
+}
+.not-sure-section a:hover{
+	color: rgb(4, 135, 217);
+}

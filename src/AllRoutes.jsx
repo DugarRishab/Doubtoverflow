@@ -14,6 +14,7 @@ class AllRoutes extends Component {
 				<Route exact path="/" element={<Home />}></Route>
 				<Route exact path="/auth" element={<Auth />}></Route>
 				<Route exact path="/questions/:id" element={<Questions />}></Route>
+				<Route exact path="/questions" element={<Questions />}></Route>
 				<Route exact path="/askquestion" element={<AskQuestions />}></Route>
 			</Routes>
 		);
