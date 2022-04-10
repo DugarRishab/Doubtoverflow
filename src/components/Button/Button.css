@@ -3,7 +3,7 @@
 	--accent80: rgba(165, 121, 255, 0.80);
 	--accent-dark: rgb(22, 62, 0);
 }
-button{
+button.btn{
 	background-color: rgba(255, 255, 255, 0.10);
 	outline: 0px solid var(--accent);
 	border: none;
@@ -14,8 +14,8 @@ button{
 	transition: all 0s;
 	cursor: pointer;
 }
-button:focus,
-button:hover {
+button.btn:focus,
+button.btn:hover {
 	transition: 0s;
 	outline: 2px solid var(--accent);
 }

@@ -36,7 +36,7 @@ class Question extends Component {
 				<div className="info">
 					<div className="item user">
 						<Avatar></Avatar>
-						{question.userPosted}
+						{question.user.name}
 					</div>
 					<div className="item time">{question.time}</div>
 				</div>

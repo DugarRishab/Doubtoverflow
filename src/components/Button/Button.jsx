@@ -7,7 +7,7 @@ class Button extends Component {
 	render() { 
 		const { innerText, buttonType, type, onSwitch } = this.props;
 		return (
-			<button className={`btn--${ buttonType }`} type={ type } onClick={()=>onSwitch()} >{ innerText }</button>
+			<button className={`btn btn--${ buttonType }`} type={ type } onClick={()=>onSwitch()} >{ innerText }</button>
 		);
 	}
 }
