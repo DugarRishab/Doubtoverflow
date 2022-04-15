@@ -6,13 +6,13 @@ class InputText extends Component {
 		style: {},
 	};
 	render() {
-		const { type, label, optionalInnerHtml } = this.props;
+		const { type, label, optionalInnerHtml, onChange } = this.props;
 		const name = label.toLowerCase();
 		return (
 			<label htmlFor={name}>
 				<h4>{label}</h4>
 				{optionalInnerHtml}
-				<input type={type} name={name} id={name} />
+				<input type={type} name={name} id={name} onChange={e => onChange(e)} />
 			</label>
 		);
 	}
