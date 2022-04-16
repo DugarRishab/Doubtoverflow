@@ -1,33 +1,33 @@
 import React, { Component, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assests/logo.png";
 import "./Auth.css";
 import InputText from "../../components/InputText/InputText";
 import Button from "../../components/Button/Button";
 import AboutAuth from "./AboutAuth";
-import { signupAction, loginAction } from "../../redux/actions/authActions";
+import { signup, login } from "../../redux/actions/authActions";
+import Loading from "../../components/Loading/Loading";
 
 const Auth = () => {
-
 	const [isSignedup, setIsSignedup] = useState(false);
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [passwordConfirm, setPasswordfConfirm] = useState('');
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [passwordConfirm, setPasswordfConfirm] = useState("");
+
+	const loading = useSelector((state) => state.auth.loading);
+	const success = useSelector((state) => state.auth.success);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	
 
 	const handleSwitch = () => {
-
 		setIsSignedup(!isSignedup);
 		// setName(null);
 		// setEmail(null);
 		// setPassword(null);
 		// setPasswordfConfirm(null);
-		
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -37,36 +37,29 @@ const Auth = () => {
 			// LOGIN ->
 			if (!email || !password) {
 				alert("Enter all required fields");
-			}
-			else {
+			} else {
 				// API CALL ->
-				dispatch(loginAction({ email, password }, navigate));
+				dispatch(login({ email, password }, navigate));
 			}
-			
-		}
-		else {
+		} else {
 			// signup
 			if (!email || !password || !passwordConfirm || !name) {
 				alert("Enter all required fields");
-				
 			} else {
 				if (password !== passwordConfirm) {
 					alert("Passwords doesnot match");
-				}
-				else {
+				} else {
 					// API CALL ->
 					dispatch(
-						signupAction(
+						signup(
 							{ email, password, name, passwordConfirm },
 							navigate
 						)
 					);
 				}
-				
 			}
 		}
-
-	}
+	};
 	return (
 		<section className="auth-section">
 			{!isSignedup && <AboutAuth />}
@@ -128,11 +121,20 @@ const Auth = () => {
 							</p>
 						</label>
 					) : null} */}
-					<Button
-						type="submit"
-						buttonType="primary"
-						innerText={isSignedup ? "Log in" : "Sign up"}
-					></Button>
+					{!loading ? (
+						!success ? (
+							<Button
+								type="submit"
+								buttonType="primary"
+								innerText={isSignedup ? "Log in" : "Sign up"}
+							></Button>
+						) : (
+							<Loading type="success"></Loading>
+						)
+					) : (
+						<Loading type="process"></Loading>
+					)}
+
 					{!isSignedup ? (
 						<p className="sub-text">
 							By clicking “Sign up”, you agree to our{" "}
@@ -165,7 +167,6 @@ const Auth = () => {
 			</div>
 		</section>
 	);
-}
- 
+};
 
 export default Auth;

@@ -89,3 +89,6 @@ section.auth-section{
 .about-auth .sub-text{
 	margin-top: 20px;
 }
+.loading{
+	margin: 10px 0 10px 0;
+}
