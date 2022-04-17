@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+//import { useAlert } from "react-alert";
 import logo from "../../assests/logo.png";
 import "./Auth.css";
 import InputText from "../../components/InputText/InputText";
@@ -8,9 +9,13 @@ import Button from "../../components/Button/Button";
 import AboutAuth from "./AboutAuth";
 import { signup, login } from "../../redux/actions/authActions";
 import Loading from "../../components/Loading/Loading";
+// import { AlertContainer, alert } from "react-custom-alert";
+import { alert } from "../../components/CustomAlert/alert";
+// import "react-custom-alert/dist/index.css";
+import "../../components/CustomAlert/CustomAlert.css";
 
 const Auth = () => {
-	const [isSignedup, setIsSignedup] = useState(false);
+	const [isSignedup, setIsSignedup] = useState(true);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -21,6 +26,7 @@ const Auth = () => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	// const alert = useAlert();
 
 	const handleSwitch = () => {
 		setIsSignedup(!isSignedup);
@@ -36,7 +42,9 @@ const Auth = () => {
 		if (isSignedup) {
 			// LOGIN ->
 			if (!email || !password) {
-				alert("Enter all required fields");
+				// alert.show("Enter all required fields");
+				//alert("Enter all required fields");
+				alert({ message: "Enter all required fields", type: "error" });
 			} else {
 				// API CALL ->
 				dispatch(login({ email, password }, navigate));
@@ -44,10 +52,17 @@ const Auth = () => {
 		} else {
 			// signup
 			if (!email || !password || !passwordConfirm || !name) {
-				alert("Enter all required fields");
+				// alert.show("Enter all required fields");
+				alert({ message: "Enter all required fields", type: "error" });
+				//alert("Enter all required fields");
 			} else {
 				if (password !== passwordConfirm) {
-					alert("Passwords doesnot match");
+					// alert("Passwords doesnot match");
+					// alert.show("Passwords doesnot match");
+					alert({
+						message: "Passwords do not match",
+						type: "error",
+					});
 				} else {
 					// API CALL ->
 					dispatch(

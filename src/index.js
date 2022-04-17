@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { AlertContainer } from "./components/CustomAlert/alert";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -14,6 +15,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<React.StrictMode>
 			<App />
+			<AlertContainer floatingTime={5000} />
 		</React.StrictMode>
 	</Provider>,
 	document.getElementById("root")
