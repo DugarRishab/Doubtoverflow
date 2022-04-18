@@ -1,40 +1,83 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+// import { createEditor } from "slate";
+// import { Slate, Editable, withReact } from "slate-react";
 
 import Button from "../../components/Button/Button";
 import RightPaneAcordians from "./RightPanelAcordians";
 import "./AskQuestions.css";
+import { alert } from "../../components/CustomAlert/alert";
+import "../../components/CustomAlert/CustomAlert.css";
+import { askQuestion } from '../../redux/actions/questionAction';
 
 const AskQuestions = () => {
-	const user = 1;
-	const navigate = useNavigate();
+	const user = useSelector((state) => state.auth.user);
+	const [title, setTitle] = useState('');
+	const [tags, setTags] = useState('');
+	const [description, setDescription] = useState('');
 
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+ 
 	const redirect = () => {
-		//alert("Login or Signup to ask a question");
 		navigate("/auth");
 	};
-	
+
+	const updateQuestionDetails = (e, obj) => {
+		const val = e.target.value;
+		switch (obj) {
+			case "title":
+				setTitle(val);
+				break;
+			case "description":
+				setDescription(val);
+				break;
+			case "tags":
+				setTags(val.trim().split(" ").filter(tag => tag.length > 0));
+				break;
+			default:
+				alert({
+					message: "Something went wrong. Please type again",
+					type: "warning",
+				});
+				console.log("ERROR: ", val);
+		}
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(user.name, "=>", { title, description, tags });
+		dispatch(askQuestion({ title, tags, description, user }, navigate));
+	}
+
 	return (
 		<React.Fragment>
 			{user === null ? (
 				redirect()
 			) : (
 				<div className="ask-ques-container">
-					<h1 className="header">ASK A PUBLIC QUESTION</h1>
+						<h1 className="header">ASK A PUBLIC QUESTION</h1>
 					<div className="contents">
 						<div className="ask-ques">
-							<form action="">
+							<form action="" onSubmit={e=> handleSubmit(e)}>
 								<div className="ask-form-container">
 									<label htmlFor="ques-title">
 										<h4>Title</h4>
 										<p>
-											Be specific and imagine you’re
+											Be specific and imagine you're
 											asking a question to another person
 										</p>
 										<input
 											type="text"
 											name="ques-title"
 											id="ques-title"
+											onChange={(e) =>
+												updateQuestionDetails(
+													e,
+													"title"
+												)
+											}
 										/>
 									</label>
 									<label htmlFor="ques-body">
@@ -48,6 +91,12 @@ const AskQuestions = () => {
 											id="ques-body"
 											cols="30"
 											rows="10"
+											onChange={(e) =>
+												updateQuestionDetails(
+													e,
+													"description"
+												)
+											}
 										></textarea>
 									</label>
 									<label htmlFor="ques-tags">
@@ -58,6 +107,12 @@ const AskQuestions = () => {
 										</p>
 										<input
 											type="text"
+											onChange={(e) =>
+												updateQuestionDetails(
+													e,
+													"tags"
+												)
+											}
 											name="ques-tags"
 											id="ques-tags"
 										/>
@@ -71,7 +126,6 @@ const AskQuestions = () => {
 							</form>
 						</div>
 						<div className="right-panel">
-							
 							<RightPaneAcordians></RightPaneAcordians>
 						</div>
 					</div>

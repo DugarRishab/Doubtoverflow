@@ -5,7 +5,7 @@ const AllQuestionsPanel = () => {
 		<div>
 			<h1>All Questions</h1>
 		</div>
-	 );
+	);
 }
  
 export default AllQuestionsPanel;
