@@ -1,0 +1,40 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent80: rgba(165, 121, 255, 0.40);
+	--accent-dark: rgb(22, 62, 0);
+	--accent2: rgba(255, 174, 0, 0.5);
+}
+.toolbar{
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 5px 5px 0 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+.textarea{
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	color: white;
+	border-radius: 0 0 5px 5px;
+	padding: 20px;
+}
+.textarea p{
+	color: white !important;
+}
+.textarea ul{
+	list-style: disc !important;
+}
+code{
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 5px;
+	background-color: black;
+	box-sizing: border-box;
+	border-radius: 5px;
+	margin: 5px;
+}
+.tool-btns{
+	border: 0px solid red;
+}
