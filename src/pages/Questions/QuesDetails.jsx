@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar/Avatar";
+import RichTextViewer from "../../components/RichTextViewer/RichTextViewer";
 import Tag from "../../components/Tag/Tag";
 
 class QuesDetails extends Component {
@@ -14,17 +15,21 @@ class QuesDetails extends Component {
 					<div className="ques-info">
 						<div className="item">Asked Today</div>
 						{/* <div className="item">Modified Today</div> */}
-						
 					</div>
 				</div>
 				<div className="ques-details">
 					<div className="voter">
 						<span class="material-icons">arrow_drop_up</span>
-						<div className="votes">{question.upVotes - question.downVotes}</div>
+						<div className="votes">
+							{question.upVotes - question.downVotes}
+						</div>
 						<span class="material-icons">arrow_drop_down</span>
 					</div>
 					<div className="ques-content">
-						<div className="ques-body">{question.description}</div>
+						{/* <div className="ques-body">{question.description}</div> */}
+						<RichTextViewer
+							text={JSON.parse(question.description)}
+						></RichTextViewer>
 						<div className="ques-tags">
 							{question.tags.map((tag) => (
 								<Tag tag={tag}></Tag>

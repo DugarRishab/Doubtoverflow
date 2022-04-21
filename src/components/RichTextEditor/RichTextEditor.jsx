@@ -307,7 +307,7 @@ const MarkButton = ({ format, icon }) => {
 	);
 };
 
-const initialValue: Descendant[] = [
+const initialValue = [
 	{
 		type: "paragraph",
 		align: "left",
