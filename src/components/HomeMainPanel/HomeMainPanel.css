@@ -19,7 +19,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-
+	margin-top: 20px;
 }
 .home-main-panel .header .ask-btn{
 	width: fit-content;

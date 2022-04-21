@@ -10,3 +10,11 @@ export const askQuestion = (question, navigate) => async (dispatch) => {
 		
 	}
 }
+export const getAllQuestions = (queries) => async (dispatch) => {
+	try {
+		const res = await api.getAllQuestions(queries);
+		console.log(res.data);
+		dispatch({ type: "GET_ALL_QUESTIONS", payload: res.data.data });
+		
+	} catch (err) {}
+}

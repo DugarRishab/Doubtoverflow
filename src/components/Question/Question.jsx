@@ -13,7 +13,7 @@ class Question extends Component {
 		return (
 			<div className="question">
 				<div className="stats">
-					<div className="item">{question.votes} votes</div>
+					<div className="item">{question.upVotes} votes</div>
 					<div className="item answers">
 						<Button
 							innerText={question.answers.length + " answers"}
@@ -21,14 +21,14 @@ class Question extends Component {
 						></Button>
 					</div>
 
-					<div className="item">{question.views} views</div>
+					{/* <div className="item">{question.views} views</div> */}
 				</div>
 				<div className="content">
 					<div className="title">
-						<Link to={`/questions/${question.id}`}>{question.questionTitle}</Link>
+						<Link to={`/questions/${question._id}`}>{question.title}</Link>
 					</div>
 					<div className="tags">
-						{question.questionTags.map((tag) => (
+						{question.tags.map((tag) => (
 							<Tag tag={tag} small="true"></Tag>
 						))}
 					</div>
@@ -38,7 +38,7 @@ class Question extends Component {
 						<Avatar></Avatar>
 						{question.user.name}
 					</div>
-					<div className="item time">{question.time}</div>
+					<div className="item time">{question.dateCreated}</div>
 				</div>
 			</div>
 		);
