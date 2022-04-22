@@ -1,4 +1,5 @@
 import * as api from "../../API/api.js";
+import { alert } from "../../components/CustomAlert/alert";
 
 export const signup = (authData, navigate) => async (dispatch) => {
 	try {
@@ -7,6 +8,7 @@ export const signup = (authData, navigate) => async (dispatch) => {
 		dispatch({ type: "FETCH_AUTH_SUCCESS", data: res.data.data });
 		navigate("/");
 	} catch (err) {
+		alert({ message: err.message, type: "error" });
 		dispatch({ type: "FETCH_AUTH_FAILURE" });
 	}
 };
@@ -21,6 +23,7 @@ export const login = (authData, navigate) => async (dispatch) => {
 		}, 2000);
 		
 	} catch (err) {
+		alert({ message: err.message, type: "error" });
 		dispatch({ type: "FETCH_AUTH_FAILURE" });
 	}
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar/Avatar";
 import RichTextViewer from "../../components/RichTextViewer/RichTextViewer";
 import Tag from "../../components/Tag/Tag";
-
+import moment from "moment";
 class QuesDetails extends Component {
 	state = {};
 	render() {
@@ -39,7 +39,7 @@ class QuesDetails extends Component {
 				</div>
 				<div className="ques-user-details">
 					<div className="ques-user">
-						<p>asked 15 mins ago</p>
+						<p>asked {moment(question.dateCreated).fromNow()}</p>
 						<Link to={`/users/${question.user._id}`}>
 							<div className="user-info">
 								<Avatar></Avatar>

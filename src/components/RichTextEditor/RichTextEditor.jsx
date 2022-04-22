@@ -93,6 +93,14 @@ const RichTextEditor = (props) => {
 	const renderElement = useCallback((props) => <Element {...props} />, []);
 	const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
 	const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+
+	const initialValue = props.initialValue || [
+		{
+			type: "paragraph",
+			align: "left",
+			children: [{ text: "" }],
+		},
+	];
 	
 	return (
 		<Slate editor={editor} value={initialValue} onChange={value => props.onChange(value)}>
@@ -123,7 +131,7 @@ const RichTextEditor = (props) => {
 				placeholder="Enter some rich text…"
 				spellCheck
 				className="textarea"
-				autoFocus
+				// autoFocus
 				reversed= {true}
 				onKeyDown={(event) => {
 					for (const hotkey in HOTKEYS) {
@@ -307,12 +315,6 @@ const MarkButton = ({ format, icon }) => {
 	);
 };
 
-const initialValue = [
-	{
-		type: "paragraph",
-		align: "left",
-		children: [{ text: "" }],
-	},
-];
+
 
 export default RichTextEditor;

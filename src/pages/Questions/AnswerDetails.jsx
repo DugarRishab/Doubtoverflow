@@ -9,7 +9,7 @@ class AnswerDetails extends Component {
 	state = {};
 	render() {
 		const { answer } = this.props;
-		console.log(answer);
+		//console.log(answer);
 		return (
 			<section className="answer-container" key={`ans-${answer.id}`}>
 				<div className="answer-details">
@@ -28,7 +28,7 @@ class AnswerDetails extends Component {
 				</div>
 				<div className="answer-user-details">
 					<div className="answer-user">
-						<p>asked </p>
+						<p>answered {moment(answer.dateCreated).fromNow()}</p>
 						<Link to={`/users/${answer.user.id}`}>
 							<div className="user-info">
 								<Avatar></Avatar>

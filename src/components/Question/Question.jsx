@@ -5,7 +5,7 @@ import './Question.css';
 import Tag from '../Tag/Tag';
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
-
+import moment from "moment";
 class Question extends Component {
 	state = {  } 
 	render() { 
@@ -25,7 +25,9 @@ class Question extends Component {
 				</div>
 				<div className="content">
 					<div className="title">
-						<Link to={`/questions/${question._id}`}>{question.title}</Link>
+						<Link to={`/questions/${question._id}`}>
+							{question.title}
+						</Link>
 					</div>
 					<div className="tags">
 						{question.tags.map((tag) => (
@@ -38,7 +40,9 @@ class Question extends Component {
 						<Avatar></Avatar>
 						{question.user.name}
 					</div>
-					<div className="item time">{question.dateCreated}</div>
+					<div className="item time">
+						asked {moment(question.dateCreated).fromNow()}
+					</div>
 				</div>
 			</div>
 		);

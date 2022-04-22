@@ -3,7 +3,7 @@
 	--accent5: rgba(165, 121, 255, 0.05);
 	--accent20: rgba(165, 121, 255, 0.2);
 	--accent-dark: rgb(62, 49, 89);
-	--danger: rgb(205, 40, 40);
+	--danger: rgb(255, 27, 27);
 	--correct: rgb(0, 255, 0);
 	--correct70: rgb(0, 255, 0, 0.7);
 }
@@ -51,7 +51,9 @@
 	margin-top: 10px;
 	width: 100%;
 	box-sizing: border-box;
-
+}
+.ask-ques-container .contents .ask-ques label input.error{
+	outline: 2px solid var(--danger) ;
 }
 .ask-ques-container .contents .ask-ques label textarea{
 	background-color: rgba(255, 255, 255, 0.1);
@@ -94,4 +96,9 @@
 }
 .ask-ques-container .contents .rightSideAccordion .accordion-item:last-child{
 	margin: 0 00px 50px 00px;
+}
+p.error-message{
+	color: var(--danger) !important;
+	font-weight: 700 !important;
+	margin-top: 5px;
 }

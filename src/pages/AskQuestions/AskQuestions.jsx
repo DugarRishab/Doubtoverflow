@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
 import RightPaneAcordians from "./RightPanelAcordians";
 import "./AskQuestions.css";
-import { alert } from "../../components/CustomAlert/alert";
+import { alert, AlertContainer } from "../../components/CustomAlert/alert";
 import "../../components/CustomAlert/CustomAlert.css";
 import { askQuestion } from '../../redux/actions/questionAction';
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor";
@@ -14,7 +14,7 @@ import RichTextEditor from "../../components/RichTextEditor/RichTextEditor";
 const AskQuestions = () => {
 	const user = useSelector((state) => state.auth.user);
 	const [title, setTitle] = useState("");
-	const [tags, setTags] = useState("");
+	const [tags, setTags] = useState([]);
 	const [description, setDescription] = useState("");
 
 	const navigate = useNavigate();
@@ -28,18 +28,23 @@ const AskQuestions = () => {
 		const val = e.target.value;
 		switch (obj) {
 			case "title":
+				
 				setTitle(val);
+				// else alert({message: "Title cannot be "})
 				break;
 			case "description":
 				setDescription(val);
 				break;
 			case "tags":
+				
 				setTags(
 					val
 						.trim()
 						.split(" ")
 						.filter((tag) => tag.length > 0)
 				);
+				
+				
 				break;
 			default:
 				alert({
@@ -52,8 +57,14 @@ const AskQuestions = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(user.name, "=>", { title, description, tags });
-		dispatch(askQuestion({ title, tags, description, user }, navigate));
+		if (description.length > 10000 || tags.length > 5 || title.length > 100) {
+			alert({ message: "Please resolve all errors in the form before submitting", type: "error" });
+			
+		}
+		else {
+			console.log(user.name, "=>", { title, description, tags });
+			dispatch(askQuestion({ title, tags, description, user }, navigate));
+		}
 	};
 
 	const handleRichTextInput = val => {
@@ -83,6 +94,11 @@ const AskQuestions = () => {
 											type="text"
 											name="ques-title"
 											id="ques-title"
+											className={
+												title.length > 100
+													? "error"
+													: null
+											}
 											onChange={(e) =>
 												updateQuestionDetails(
 													e,
@@ -90,6 +106,11 @@ const AskQuestions = () => {
 												)
 											}
 										/>
+										{title.length > 100 ? (
+											<p className="error-message">
+												Too Long by {title.length - 100}{" "}characters
+											</p>
+										) : null}
 									</label>
 									<label htmlFor="ques-body">
 										<h4>Description</h4>
@@ -109,7 +130,14 @@ const AskQuestions = () => {
 												)
 											}
 										></textarea> */}
-										<RichTextEditor onChange={handleRichTextInput}></RichTextEditor>
+										<RichTextEditor
+											onChange={handleRichTextInput}
+										></RichTextEditor>
+										{description.length > 10000 ? (
+											<p className="error-message">
+												Character limit exceded by {description.length - 100} characters
+											</p>
+										) : null}
 									</label>
 									<label htmlFor="ques-tags">
 										<h4>Tags</h4>
@@ -125,6 +153,11 @@ const AskQuestions = () => {
 											name="ques-tags"
 											id="ques-tags"
 										/>
+										{tags.length > 5 ? (
+											<p className="error-message">
+												Enter only 5 tags
+											</p>
+										) : null}
 									</label>
 								</div>
 								<Button

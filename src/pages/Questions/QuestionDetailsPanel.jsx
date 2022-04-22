@@ -1,9 +1,10 @@
 import React, { Component, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import copy from 'copy-to-clipboard'
 
 import QuesDetails from "./QuesDetails";
 import "./Questions.css";
@@ -24,12 +25,17 @@ const QuestionDetailsPanel = () => {
 		"Date Created (oldest first)",
 	];
 	const dispatch = useDispatch();
+	const location = useLocation();
+	const baseURL = 'http://localhost:3000/'
 	const defaultOption = options[0];
 	// console.log(questionsList);
 	const [answer, setAnswer] = useState("");
+	const [answerString, setAnswerString] = useState("");
 
 	const handleAnswerInput = (val) => {
 		setAnswer(JSON.stringify(val));
+		setAnswerString(concatInput(val));
+		//console.log(answerString.length);
 	}
 	const concatInput = (answer) => {
 		let str = "";
@@ -42,14 +48,22 @@ const QuestionDetailsPanel = () => {
 	}
 	const handleAnswerSubmit = () => {
 		//console.log(concatInput(JSON.parse(answer)));
-		// console.log(JSON.parse(answer));
-		if (concatInput(JSON.parse(answer)).length > 0) {
-			console.log("answer", answer);
+		console.log("length", answerString.length);
+		//e.preventDefault();
+		if (answerString.length > 5000) {
+			alert({ message: "Please resolve all error before submitting", type: "error" });	
+		}
+		else if (answerString.length > 0) {
+			//console.log("answer", answer);
 			dispatch(postAnswer(answer, id));
-		} else {
+		} 
+		else {
 			alert({ message: "Answer body cannot be empty", type: "error" });
 		}
 	}
+	
+
+
 	return (
 		<div className="ques-panel">
 			<div className="header">
@@ -83,17 +97,23 @@ const QuestionDetailsPanel = () => {
 					))}
 					<section className="your-answer">
 						<p>Your Answer</p>
-						<RichTextEditor
-							onChange={handleAnswerInput}
-						></RichTextEditor>
-						<form action="">
-							{/* <textarea
-								name=""
-								id=""
-								cols="30"
-								rows="10"
-							></textarea> */}
 
+						<form
+							action=""
+							onSubmit={
+								answerString.length < 5000 ? (e) => handleAnswerSubmit(e) : null
+							}
+						>
+							<RichTextEditor
+								onChange={handleAnswerInput}
+								initialValue = ""
+							></RichTextEditor>
+							{(answerString.length > 5000) ? (
+							<p className="error-message">
+								Character limit exceded by
+								{answerString.length - 5000} characters
+							</p>
+						) : null}
 							<Button
 								type="button"
 								innerText="Post your answer"

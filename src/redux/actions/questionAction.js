@@ -1,4 +1,5 @@
 import * as api from "../../API/api.js";
+import { alert } from "../../components/CustomAlert/alert";
 
 export const askQuestion = (question, navigate) => async (dispatch) => {
 	try {
@@ -7,25 +8,27 @@ export const askQuestion = (question, navigate) => async (dispatch) => {
 		navigate('/');
 	}
 	catch (err) {
-		
+		alert({ message: err.message, type: "error" });
 	}
 }
 export const getAllQuestions = (queries) => async (dispatch) => {
 	try {
 		const res = await api.getAllQuestions(queries);
-		console.log(res.data);
+		// console.log(res.data);
 		dispatch({ type: "GET_ALL_QUESTIONS", payload: res.data.data });
 		
-	} catch (err) {}
+	} catch (err) {
+		alert({ message: err.message, type: "error" });
+	}
 }
 export const postAnswer = (answerBody, id) => async (dispatch) => {
-	console.log(answerBody, typeof answerBody);
+	
 	try {
 		const res = await api.postAnswer(answerBody, id);
-		console.log(res.data);
+		window.location.reload();
 		dispatch({ type: "POST_ANSWER", payload: res.data.data });
 	}
 	catch (err) {
-		
+		alert({ message: err.message, type: "error" });
 	}
 }
