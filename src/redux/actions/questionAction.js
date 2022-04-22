@@ -18,3 +18,14 @@ export const getAllQuestions = (queries) => async (dispatch) => {
 		
 	} catch (err) {}
 }
+export const postAnswer = (answerBody, id) => async (dispatch) => {
+	console.log(answerBody, typeof answerBody);
+	try {
+		const res = await api.postAnswer(answerBody, id);
+		console.log(res.data);
+		dispatch({ type: "POST_ANSWER", payload: res.data.data });
+	}
+	catch (err) {
+		
+	}
+}
