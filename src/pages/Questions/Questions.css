@@ -107,7 +107,7 @@
 	border: 0px solid red;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
 }
 .answer-user-details .answer-user,

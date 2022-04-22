@@ -1,19 +1,32 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Avatar from "../../components/Avatar/Avatar";
 import RichTextViewer from "../../components/RichTextViewer/RichTextViewer";
 import Tag from "../../components/Tag/Tag";
 import moment from "moment";
-class QuesDetails extends Component {
-	state = {};
-	render() {
-		const { question } = this.props;
-		return (
-			<section className="ques-container">
+import Button from "../../components/Button/Button";
+import copy from "copy-to-clipboard";
+import { alert } from "../../components/CustomAlert/alert";
+
+const QuesDetails = (props) => {
+	const { question } = props;
+	const location = useLocation();
+	const baseURL = "http://localhost:3000";
+
+	const handleShare = () => {
+		console.log('SHARE');
+		copy(baseURL + location.pathname);
+		alert({
+			message: "Share link copied. URL: " + baseURL + location.pathname,
+			type: "success",
+		});
+	};
+
+	return ( <section className="ques-container">
 				<div className="ques-header">
 					<h1 className="ques-title">{question.title}</h1>
 					<div className="ques-info">
-						<div className="item">Asked Today</div>
+						<div className="item">Asked { moment(question.dateCreated).fromNow()}</div>
 						{/* <div className="item">Modified Today</div> */}
 					</div>
 				</div>
@@ -38,6 +51,7 @@ class QuesDetails extends Component {
 					</div>
 				</div>
 				<div className="ques-user-details">
+					<Button innerText="Share" buttonType="tertiary" onClick={handleShare}></Button>
 					<div className="ques-user">
 						<p>asked {moment(question.dateCreated).fromNow()}</p>
 						<Link to={`/users/${question.user._id}`}>
@@ -50,7 +64,6 @@ class QuesDetails extends Component {
 				</div>
 			</section>
 		);
-	}
 }
-
+ 
 export default QuesDetails;

@@ -61,9 +61,14 @@ const QuestionDetailsPanel = () => {
 			alert({ message: "Answer body cannot be empty", type: "error" });
 		}
 	}
+	const handleShare = () => {
+		copy(baseURL + location.pathname);
+		alert({
+			message: "Copied URL: " + baseURL + location.pathname,
+			type: "info",
+		});
+	};
 	
-
-
 	return (
 		<div className="ques-panel">
 			<div className="header">
