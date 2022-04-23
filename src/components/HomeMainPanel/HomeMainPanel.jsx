@@ -12,7 +12,7 @@ import { getAllQuestions } from "../../redux/actions/questionAction";
 
 const HomeMainPanel = (props) => {
 	const questionsList = useSelector(state => state.question.allQuestions);
-	console.log(Array.isArray(questionsList));
+	
 	const location = useLocation();
 	
 	const { tabs, title } = props;
@@ -22,6 +22,11 @@ const HomeMainPanel = (props) => {
 			<div className="header">
 				{location.pathname === "/" ? (
 					<h1 className="title">Top Questions</h1>
+				) : queryString.parse(location.search).tag != null ? (
+					<h1 className="title">
+						Top Question with tag:{" "}
+						{queryString.parse(location.search).tag}
+					</h1>
 				) : (
 					<h1 className="title">All Questions</h1>
 				)}
@@ -33,13 +38,11 @@ const HomeMainPanel = (props) => {
 					></Button>
 				</Link>
 			</div>
-			{
-				tabs ? <Tabs></Tabs>: null
-			}
-			
+			{tabs ? <Tabs></Tabs> : null}
+
 			<div className="contents">
 				{questionsList.length === 0 ? (
-					<h1>Loading...</h1>
+					<h3>No Questions Found</h3>
 				) : (
 					<>
 						{/* <p>{questionsList.length} questions</p> */}

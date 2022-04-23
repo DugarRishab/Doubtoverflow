@@ -1,0 +1,46 @@
+[
+	{
+		"tag": "javascript",
+		"description": "For questions regarding programming in ECMAScript (JavaScript/JS) and its various dialects/implementations (excluding ActionScript)"
+	},
+	{
+		"tag": "python",
+		"description": "Python is a multi-paradigm, dynamically typed, multi-purpose programming language. It is designed to be quick to learn, understand"
+	},
+	{
+		"tag": "java",
+		"description": "Java is a high-level object oriented programming language. Use this tag when you're having problems using or understanding the language itself."
+	},
+	{
+		"tag": "C#",
+		"description": "C# (pronounced 'see sharp') is a high level, statically typed, multi-paradigm programming language developed by Microsoft. C# code usually targets"
+	},
+	{
+		"tag": "php",
+		"description": "PHP is a widely used, open source, general-purpose, multi-paradigm, dynamically typed and interpreted scripting language originally"
+	},
+	{
+		"tag": "android",
+		"description": "Android is Google's mobile operating system, used for programming or developing digital devices (Smartphones, Tablets, Automobiles"
+	},
+	{
+		"tag": "html",
+		"description": "HTML (HyperText Markup Language) is the markup language for creating web pages and other information to be displayed in a web browser."
+	},
+	{
+		"tag": "jquery",
+		"description": "jQuery is a JavaScript library, consider also adding the JavaScript tag. jQuery is a popular cross-browser JavaScript library that facilitates Document"
+	},
+	{
+		"tag": "c++",
+		"description": "C++ is a general-purpose programming language. It was originally designed as an extension to C and has a similar syntax,"
+	},
+	{
+		"tag": "css",
+		"description": "CSS (Cascading Style Sheets) is a representation style sheet language used for describing the look and formatting of HTML "
+	},
+	{
+		"tag": "nodejs",
+		"description": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library."
+	}
+]

@@ -1,0 +1,46 @@
+:root {
+	--accent: rgb(165, 121, 255);
+	--accent5: rgba(165, 121, 255, 0.05);
+	--accent30: rgba(165, 121, 255, 0.3);
+	--accent-dark: rgb(62, 49, 89);
+	--danger: rgb(205, 40, 40);
+	--correct: rgb(102, 255, 0);
+	--correct70: rgb(0, 255, 0, 0.7);
+}
+.main-body.tag-page {
+	display: flex;
+	flex-flow: row wrap;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 0;
+	padding: 0;
+}
+.main-body.tag-page header{
+	color: white;
+	margin: 20px;
+}
+.tag-item{
+	color: white;
+	width: 250px;
+	height: 150px;
+	overflow: hidden;
+	border: 1px solid var(--accent30);
+	margin: 10px;
+	box-sizing: border-box;
+}
+.tag-item h5 {
+	padding: 10px;
+}
+.tag-item a{
+	color: white;
+	text-decoration: none;
+}
+.tag-item p {
+	padding: 0px;
+	font-size: 12px;
+	border: 0px solid red;
+	margin: 0px 10px 10px 10px;
+}

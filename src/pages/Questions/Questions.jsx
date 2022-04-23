@@ -20,8 +20,9 @@ const Questions = () => {
 	
 	useEffect(() => {
 		const queries = {
-			size: 5,
-			page: queryString.parse(location.search).page,
+			size: queryString.parse(location.search).size || 10,
+			page: queryString.parse(location.search).page || 1,
+			tag: queryString.parse(location.search).tag || null,
 		};
 		dispatch(getAllQuestions(queries));
 		//setQuestionsList(select((state) => state.question.allQuestions));

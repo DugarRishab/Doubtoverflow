@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import Auth from './pages/Auth/Auth';
 import Questions from './pages/Questions/Questions';
 import AskQuestions from './pages/AskQuestions/AskQuestions';
+import Tags from './pages/Tags/Tags';
 
 class AllRoutes extends Component {
 	state = {  } 
@@ -16,6 +17,7 @@ class AllRoutes extends Component {
 				<Route exact path="/questions/:id" element={<Questions />}></Route>
 				<Route exact path="/questions" element={<Questions />}></Route>
 				<Route exact path="/askquestion" element={<AskQuestions />}></Route>
+				<Route exact path="/tags" element={<Tags />}></Route>
 			</Routes>
 		);
 	}
