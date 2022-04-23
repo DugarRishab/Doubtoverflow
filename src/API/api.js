@@ -10,3 +10,5 @@ export const getAllQuestions = (queries) => api.get(`/questions?page=${queries.p
 export const postAnswer = (answerBody, id) => api.post(`/questions/${id}/answer/`, { answerBody });
 export const deleteQuestion = (id) => api.delete(`/questions/${id}`);
 export const deleteAnswer = (questionId, answerId) => api.delete(`/questions/${questionId}/answer/${answerId}`);
+export const voteQuestion = (vote, id) => api.patch(`/questions/${id}/vote/${vote}`);
+export const voteAnswer = (vote, questionId, answerId) => api.patch(`/questions/${questionId}/answer/${answerId}/vote/upVote`);

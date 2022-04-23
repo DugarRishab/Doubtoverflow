@@ -15,6 +15,9 @@ const questionReducer = (state = initialState, action) => {
 			return { ...state };
 		case 'DELETE_ANSWER':
 			return { ...state };
+		case 'VOTE_QUESTION':
+			return { ...state };
+
 		default:
 			return state;
 	}

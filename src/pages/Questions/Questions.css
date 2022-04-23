@@ -4,7 +4,7 @@
 	--accent20: rgba(165, 121, 255, 0.2);
 	--accent-dark: rgb(62, 49, 89);
 	--danger: rgb(205, 40, 40);
-	--correct: rgb(0, 255, 0);
+	--correct: rgb(102, 255, 0);
 	--correct70: rgb(0, 255, 0, 0.7);
 }
 .ques-panel{
@@ -74,6 +74,21 @@
 .ques-details .voter span{
 	font-size: 50px;
 	padding: none;
+	color: rgba(202, 202, 202, 0.5);
+}
+.answer-details .voter span.success,
+.ques-details .voter span.success {
+	color: var(--correct);
+	font-size: 50px;
+	font-weight: 1000;
+	color: rgb(255, 255, 255);
+}
+.answer-details .voter span.error,
+.ques-details .voter span.error {
+	color: var(--danger);
+	font-size: 50px;
+	font-weight: 1000;
+	color: rgb(255, 255, 255);
 }
 .answer-details .answer-content,
 .ques-details .ques-content{

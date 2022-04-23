@@ -25,8 +25,9 @@ export const postAnswer = (answerBody, id) => async (dispatch) => {
 	
 	try {
 		const res = await api.postAnswer(answerBody, id);
-		window.location.reload();
+		
 		dispatch({ type: "POST_ANSWER", payload: res.data.data });
+		dispatch(getAllQuestions({}));
 	}
 	catch (err) {
 		alert({ message: err.message, type: "error" });
@@ -47,10 +48,23 @@ export const deleteAnswer = (questionId, answerId) => async (dispatch) => {
 	try {
 		await api.deleteAnswer(questionId, answerId);
 		alert({ message: "Answer successfully deleted", type: "success" });
-		window.location.reload();
+		// window.location.reload();
+		
 		dispatch({ type: "DELETE_ANSWER" });
+		dispatch(getAllQuestions({}));
 	}
 	catch(err){
+		alert({ message: err.message, type: "error" });
+	}
+}
+export const voteQuestion = (vote, id) => async (dispatch) => {
+	try {
+		console.log("vote", vote);
+		await api.voteQuestion(vote, id);
+		// window.location.reload();
+		dispatch({ type: "VOTE_QUESTION" });
+		dispatch(getAllQuestions({}));
+	} catch (err) {
 		alert({ message: err.message, type: "error" });
 	}
 }
