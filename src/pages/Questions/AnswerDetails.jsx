@@ -8,7 +8,7 @@ import moment from 'moment';
 import copy from "copy-to-clipboard";
 import { alert } from "../../components/CustomAlert/alert";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAnswer } from "../../redux/actions/questionAction";
+import { deleteAnswer, voteAnswer } from "../../redux/actions/questionAction";
 
 const AnswerDetails = (props) => {
 	const { answer, question } = props;
@@ -29,6 +29,17 @@ const AnswerDetails = (props) => {
 	const handleDeleteAnswer = () => {
 		dispatch(deleteAnswer(question._id, answer._id));
 	};
+	const handleVote = (vote) => {
+		if (vote === "upVote") {
+			if (!answer.upVotes.includes(user._id)) {
+				dispatch(voteAnswer("upVote", question._id, answer._id));
+			}
+		} else {
+			if (!answer.downVotes.includes(user._id)) {
+				dispatch(voteAnswer("downVote", question._id, answer._id));
+			}
+		}
+	};
 	return (
 		<section
 			className="answer-container"
@@ -38,11 +49,29 @@ const AnswerDetails = (props) => {
 		>
 			<div className="answer-details">
 				<div className="voter">
-					<span class="material-icons">arrow_drop_up</span>
+					<span
+						className={`material-icons ${
+							answer.upVotes.includes(user._id)
+								? "success"
+								: null
+						}`}
+						onClick={() => handleVote("upVote")}
+					>
+						arrow_drop_up
+					</span>
 					<div className="votes">
-						{answer.upVotes - answer.downVotes}
+						{answer.upVotes.length - answer.downVotes.length}
 					</div>
-					<span class="material-icons">arrow_drop_down</span>
+					<span
+						className={`material-icons ${
+							answer.downVotes.includes(user._id)
+								? "success"
+								: null
+						}`}
+						onClick={() => handleVote("downVote")}
+					>
+						arrow_drop_down
+					</span>
 				</div>
 				<div className="answer-content">
 					<div className="answer-body">

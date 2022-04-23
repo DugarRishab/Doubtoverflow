@@ -68,3 +68,14 @@ export const voteQuestion = (vote, id) => async (dispatch) => {
 		alert({ message: err.message, type: "error" });
 	}
 }
+export const voteAnswer = (vote, questionId, answerId) => async (dispatch) => {
+	try {
+		console.log("vote", vote);
+		await api.voteAnswer(vote, questionId, answerId);
+		// window.location.reload();
+		dispatch({ type: "VOTE_ANSWER" });
+		dispatch(getAllQuestions({}));
+	} catch (err) {
+		alert({ message: err.message, type: "error" });
+	}
+};
