@@ -15,7 +15,9 @@ const AnswerDetails = (props) => {
 	const location = useLocation();
 	const baseURL = "http://localhost:3000";
 	const objID = answer._id;
-	const user = useSelector((state) => state.auth.user);
+	const user = useSelector((state) => state.auth.user) || {
+		_id: null
+	};
 	const dispatch = useDispatch();
 
 	const handleShare = () => {

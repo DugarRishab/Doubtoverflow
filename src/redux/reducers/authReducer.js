@@ -18,6 +18,10 @@ const authReducer = (state = initialState, action) => {
 		case 'FETCH_AUTH_FAILURE':
 			return { ...state, loading: false, success: false };
 		
+		case 'LOGOUT':
+			localStorage.setItem('Profile', null);
+			return { ...state, user: null, loading: false, success: false };
+		
 		default:
 			return state;
 	}

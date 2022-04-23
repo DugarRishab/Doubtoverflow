@@ -7,7 +7,7 @@ import logo from "../../assests/logo.png";
 import Avatar from "../Avatar/Avatar";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "../../redux/actions/authActions";
+import { setCurrentUser, logout } from "../../redux/actions/authActions";
 
 const Navbar = () => {
 	const user = useSelector((state) => state.auth.user);
@@ -17,6 +17,10 @@ const Navbar = () => {
 	useEffect(() => {
 		dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
 	}, [dispatch]);
+
+	const handleLogout = () => {
+		dispatch(logout());
+	}
 
 	return (
 		<nav className="nav-bar">
@@ -55,7 +59,8 @@ const Navbar = () => {
 						</Link>
 						<Button
 							innerText="Log out"
-							className="nav-links"
+								className="nav-links"
+								onClick={handleLogout}
 						></Button>
 					</React.Fragment>
 				)}

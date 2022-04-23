@@ -15,7 +15,9 @@ const QuesDetails = (props) => {
 	const location = useLocation();
 	const baseURL = "http://localhost:3000";
 	const objID = question._id;
-	const user = useSelector((state) => state.auth.user);
+	const user = useSelector((state) => state.auth.user) || {
+		_id: null
+	};
 
 	const handleShare = () => {
 		console.log('SHARE');
