@@ -11,6 +11,10 @@ const questionReducer = (state = initialState, action) => {
 			return { ...state, allQuestions: action.payload.questions }
 		case 'POST_ANSWER':
 			return { ...state };
+		case 'DELETE_QUESTION':
+			return { ...state };
+		case 'DELETE_ANSWER':
+			return { ...state };
 		default:
 			return state;
 	}

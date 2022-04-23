@@ -13,11 +13,11 @@ class Question extends Component {
 		return (
 			<div className="question">
 				<div className="stats">
-					<div className="item">{question.upVotes} votes</div>
+					<div className="item">{question.upVotes.length - question.downVotes.length} votes</div>
 					<div className="item answers">
 						<Button
 							innerText={question.answers.length + " answers"}
-							buttonType="secondary"
+							buttonType="tertiary"
 						></Button>
 					</div>
 

@@ -32,3 +32,25 @@ export const postAnswer = (answerBody, id) => async (dispatch) => {
 		alert({ message: err.message, type: "error" });
 	}
 }
+export const deleteQuestion = (id, navigate) => async (dispatch) => {
+	try {
+		await api.deleteQuestion(id);
+		alert({ message: "Question successfully deleted", type: "success" });
+		navigate("/");
+		dispatch({ type: "DELETE_QUESTION" });
+	}
+	catch (err) {
+		alert({ message: err.message, type: "error" });
+	}
+}
+export const deleteAnswer = (questionId, answerId) => async (dispatch) => {
+	try {
+		await api.deleteAnswer(questionId, answerId);
+		alert({ message: "Answer successfully deleted", type: "success" });
+		window.location.reload();
+		dispatch({ type: "DELETE_ANSWER" });
+	}
+	catch(err){
+		alert({ message: err.message, type: "error" });
+	}
+}

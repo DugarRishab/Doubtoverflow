@@ -14,23 +14,9 @@ const HomeMainPanel = (props) => {
 	const questionsList = useSelector(state => state.question.allQuestions);
 	console.log(Array.isArray(questionsList));
 	const location = useLocation();
-	// const dispatch = useDispatch();
-	// const select = useSelector();
+	
 	const { tabs, title } = props;
-	//const params = useSearchParams();
-
-	// const [questionsList, setQuestionsList] = useState(
-	// 	select((state) => state.question.allQuestions)
-	// );
-	// const queries = {
-	// 	size: 100,
-	// 	page: queryString.parse(location.search).page,
-	// };
-
-	// useEffect(() => {
-	// 	dispatch(getAllQuestions(queries));
-	// 	setQuestionsList(select((state) => state.question.allQuestions));
-	// }, []);
+	
 	return (
 		<div className="home-main-panel">
 			<div className="header">

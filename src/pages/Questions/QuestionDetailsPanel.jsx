@@ -98,7 +98,7 @@ const QuestionDetailsPanel = () => {
 						/>
 					</div>
 					{question.answers.map((answer) => (
-						<AnswerDetails answer={answer}></AnswerDetails>
+						<AnswerDetails answer={answer} question={question}></AnswerDetails>
 					))}
 					<section className="your-answer">
 						<p>Your Answer</p>
