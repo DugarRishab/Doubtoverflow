@@ -85,9 +85,9 @@
 .answer-details .answer-content{
 	margin-top: 10px;
 }
-.answer-details .answer-content .answer-body,
-.ques-details .ques-content .ques-body{
-	font-size: 15px;
+.answer-details .answer-content,
+.ques-details .ques-content {
+	font-size: 13px;
 	margin-bottom: 10px;
 	font-weight: 300;
 }
@@ -134,6 +134,13 @@
 	font-size: 12px;
 	text-decoration: none;
 	color: rgb(233, 233, 233);
+}
+.answer-user-details .action-btns,
+.ques-user-details .action-btns{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
 }
 .answer-user-details .answer-user .user-info .avatar,
 .ques-user-details .ques-user .user-info .avatar{
@@ -196,6 +203,7 @@ section.your-answer form{
 	align-items: flex-start;
 	justify-content: center;
 	width: 100%;
+	font-size: 15px;
 }
 section.your-answer form textarea{
 	width: 100%;

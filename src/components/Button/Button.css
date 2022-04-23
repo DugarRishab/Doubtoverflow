@@ -50,6 +50,14 @@ button.btn--tertiary{
 	transition: all 0s;
 	color: rgb(39, 205, 255);
 }
+button.btn--tertiary.disabled{
+	color: rgb(153, 153, 153);
+}
+button.btn--tertiary.disabled:hover {
+	text-decoration: none;
+	outline: none;
+	border: none;
+}
 button.btn--tertiary:hover{
 	text-decoration: underline;
 	outline: none;

@@ -12,6 +12,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	width: 100%;
 	padding: 0px;
 	border: 1px solid var(--accent20);
@@ -34,17 +35,17 @@
 }
 .question .stats .answers button{
 	 color: var(--correct70);
-	 border: 1px solid var(--correct70);
+	 /* border: 1px solid var(--correct70); */
 	 min-width: 80px;
 	 width: fit-content;
-	 padding: 5px 2px 5px 2px;
+	 padding: 5px 0px 5px 0px;
 }
 .question .stats .answers button:hover{
 	color: var(--correct);
-	outline: 1px solid var(--correct);
+	/* outline: 1px solid var(--correct); */
 }
 .question .info{
-	width: 15%;
+	width: 20%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -60,6 +61,7 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: center;
+	text-align: right;
 }
 .question .info .user .avatar{
 	width: 2px;
@@ -69,6 +71,11 @@
 .question .info .user:hover{
 	color: rgb(0, 161, 247);
 }
+.question .info .time{
+	font-size: 12px;
+	color: rgb(201, 201, 201);
+	text-align: right;
+}
 .question .content{
 	border: 0px solid green;
 	display: flex;
@@ -76,7 +83,8 @@
 	align-items: flex-start;
 	justify-content: center;
 	padding: 10px;
-	width: 70%;
+	width: 60%;
+	font-size: 15px;
 }
 .question .content .title a{
 	color: rgb(235, 235, 235);
