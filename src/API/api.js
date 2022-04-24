@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const api = axios.create({
-	baseURL: "https://doubt-overflow-ec0aa.web.app/api/v1",
+	baseURL: "https://doubt-overflow-api.herokuapp.com/api/v1",
 });
 
 export const login = (authData) => api.post("/users/login", authData);
